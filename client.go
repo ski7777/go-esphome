@@ -224,6 +224,21 @@ func (c *Client) handleInternal(message proto.Message) bool {
 		if entity, ok := c.entities.switches[message.Key]; ok {
 			entity.update(message)
 		}
+	case *api.ClimateStateResponse:
+		if _, ok := c.entities.climate[message.Key]; ok {
+			// TODO
+			// entity.update(message)
+		}
+	case *api.TextSensorStateResponse:
+		if _, ok := c.entities.textSensor[message.Key]; ok {
+			// TODO
+			// entity.update(message)
+		}
+	case *api.BinarySensorStateResponse:
+		if _, ok := c.entities.binarySensor[message.Key]; ok {
+			// TODO
+			// entity.update(message)
+		}
 	}
 
 	return false
